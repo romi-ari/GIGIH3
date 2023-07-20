@@ -1,13 +1,32 @@
 const bodyParser = require('body-parser')
 const express = require('express')
 const app = express()
-const port = 8080
+const port = 8081
 
 app.use(bodyParser.json())
 
-let spotify = []
-let idCounterPlaylist = 0
-let idCounterSong = 0  
+let spotify = [
+  {
+    id: 1,
+    playlist: 'playlist 1',
+    songs: [
+      {
+        id: 1,
+        title: 'title 1',
+        artist: 'artist 1',
+        url: 'https://open.spotify.com/track/5rurggqwwudn9clMdcchxT?si=760e83522873416'
+      },
+      {
+        id: 2,
+        title: 'title 2',
+        artist: 'artist 2',
+        url: 'https://open.spotify.com/track/5rurggqwwudn9clMdcchxT?si=760e83522873416'
+      }
+    ]
+  }
+]
+let idCounterPlaylist = 1
+let idCounterSong = 1  
 
 //Playlist
 app.get('/playlist', (req, res) => {
